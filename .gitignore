@@ -1,3 +1,13 @@
+# wegen binary files
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
 # idea
 .idea/
 
