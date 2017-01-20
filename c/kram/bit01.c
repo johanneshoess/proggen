@@ -18,9 +18,6 @@ void printschein(int s){
 
 int main(int argc, char* argv[])
 {
-    
-    printf("%s, %s, %s\n%d\n", argv[1], argv[2], argv[3], argc);
-    
     enum Scheine Susi = Prog1 | Prog2 | Prog3;
     int Rudi = ADS | Theo | Prog3;
 
