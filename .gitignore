@@ -8,6 +8,9 @@
 # Unignore all dirs
 !*/
 
+#bin dict
+*.dSYM/
+
 # idea
 .idea/
 
