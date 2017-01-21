@@ -20,8 +20,9 @@ class Set():
         return ret.union_update(seq)
 
     def add(self, ele):
-        self.set.append(ele)
-        self.set.sort()
+        if ele not in self.set:
+            self.set.append(ele)
+            self.set.sort()
 
 
     def remove(self, p):
@@ -55,9 +56,14 @@ class Set():
         self.index += 1
         return self.set[self.index-1]
 
+    def sort(self):
+        self.set.sort()
 
     def __eq__(self, other):
-        return self.set == other
+        if type(other) == type(self):
+            self.set.sort() == other.set.sort()
+        else:
+            False
 
     def __ne__(self, other):
         return self.set != other
@@ -68,3 +74,9 @@ class Set():
 
     def __str__(self):
         return self.__repr__()
+
+    def __add__(self, other):
+        self.union_update(other)
+
+    def __sub__(self, other):
+        self.difference_update(other)
