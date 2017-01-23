@@ -14,6 +14,9 @@
 # idea
 .idea/
 
+#unignore Makefile
+!Makefile
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
