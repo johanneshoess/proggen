@@ -17,7 +17,8 @@ class Set():
 
     def union(self, seq):
         ret = Set(self.set)
-        return ret.union_update(seq)
+        ret.union_update(seq)
+        return ret
 
     def add(self, ele):
         if ele not in self.set:
@@ -26,7 +27,8 @@ class Set():
 
 
     def remove(self, p):
-        self.set.remove(p)
+        if p in self.set:
+            self.set.remove(p)
 
     def difference_update(self, seq):
         for e in seq:
@@ -35,7 +37,8 @@ class Set():
 
     def difference(self, seq):
         ret = Set(self.set)
-        return ret.difference_update(seq)
+        ret.difference_update(seq)
+        return ret
 
     def clear(self):
         self.set = []
@@ -61,7 +64,7 @@ class Set():
 
     def __eq__(self, other):
         if type(other) == type(self):
-            self.set.sort() == other.set.sort()
+            return self.set.sort() == other.set.sort()
         else:
             False
 
@@ -76,7 +79,9 @@ class Set():
         return self.__repr__()
 
     def __add__(self, other):
-        self.union_update(other)
+        return self.union(other)
+
+    __radd__ = __add__
 
     def __sub__(self, other):
-        self.difference_update(other)
+        return self.difference(other)
