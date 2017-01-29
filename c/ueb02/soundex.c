@@ -30,7 +30,7 @@ void doSoundex(char *ca){
     for(; i < 6; i++){
         sc[i] = '0';
     }
-    printf("%s : %s\n",scp, sc);
+    printf("%s:\t%s\n",scp, sc);
 }
 
 char soundex(char c){
