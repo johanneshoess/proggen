@@ -23,7 +23,8 @@ int main(int argc, char *argv[]){
 char * komprimierer(char * ca){
     char *ncp = malloc(64);
     char *start = ncp;
-    char c = *ca;
+    typedef char chwas;
+    chwas c = *ca;
     ca++;
     int i = 1;
     while(*ca){
@@ -43,6 +44,13 @@ char * komprimierer(char * ca){
         }
         c = *ca;
         ca++;
+    }
+    if(i > 1){
+        *ncp = i+48;
+        ncp++;
+        *ncp = c;
+    }else{
+        *ncp = c;
     }
     return start;
 }
