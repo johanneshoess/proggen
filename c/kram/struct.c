@@ -8,9 +8,11 @@ struct person{
 };
 void ersterStreich();
 void change(struct person *pp);
+void wieViel();
 
 int main(void){
-    ersterStreich();
+    //ersterStreich();
+    wieViel();
 }
 
 void ersterStreich(){
@@ -57,4 +59,17 @@ void ersterStreich(){
 void change(struct person *pp){
     strcpy(pp->name, "ein neuer Rudi!");
     pp-> id = 99244;
+}
+
+void wieViel(){
+    struct much {
+        int a;
+        char b[13];
+        char * c;
+    };
+    struct much s;
+    printf("size of integer:\t%lu\n", sizeof(s.a));
+    printf("size of char[12]:\t%lu\n", sizeof(s.b));
+    printf("size of char *:  \t%lu\n", sizeof(s.c));
+    printf("braucht %lu byte\n", sizeof(s));
 }

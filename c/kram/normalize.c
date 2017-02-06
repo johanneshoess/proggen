@@ -4,30 +4,37 @@
 void normalize(char * string);
 
 int main(void){
-    char string[] = "was auch immer \t      und hier noch was... auc\tch";
-    printf("Eingabe: %s\n", string);
+    char string[] = "w\tas      auch      immer \t     -\t- und      hier     noch      was...      auc\tch";
+    printf("Eingabe:\t%s\n", string);
     normalize(string);
-    printf("Ausgabe: %s\n", string);
+    printf("Ausgabe:\t%s\n", string);
 }
 
 void normalize(char * string){
     char *p;
     char *start;
-    char *last;
-    last = string;
-    p = string;
     start = string;
-    for(; *p; p++){
-        if(*p == ' ' || *p == '\t'){
-            if(!(*last == ' ')){
-                last = string;
+    p = string;
+
+    while(*p){
+        if(*p == ' ' | *p == '\t'){
+
+            if(*--string == ' '){
+                p++;
+                string++;
+            }else{
+                string++;
                 *string = ' ';
                 string++;
+                p++;
             }
         }else{
             *string = *p;
+            p++;
             string++;
         }
     }
-    printf("Funktion: %s\n", start);
+    *string = '\0';
+
+    printf("Funktion:\t%s\n", start);
 }
