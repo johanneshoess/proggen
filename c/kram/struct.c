@@ -6,13 +6,24 @@ struct person{
     char name[40];
     unsigned int id;
 };
+
+struct p1{
+    short a;
+    int b;
+    char c[3];
+    char d[4];
+    int e;
+};
+
 void ersterStreich();
 void change(struct person *pp);
 void wieViel();
+void speicherlayout();
 
 int main(void){
     //ersterStreich();
-    wieViel();
+    //wieViel();
+    speicherlayout();
 }
 
 void ersterStreich(){
@@ -72,4 +83,14 @@ void wieViel(){
     printf("size of char[12]:\t%lu\n", sizeof(s.b));
     printf("size of char *:  \t%lu\n", sizeof(s.c));
     printf("braucht %lu byte\n", sizeof(s));
+}
+
+void speicherlayout(){
+    struct p1 p;
+    char *base = (char *) &p;
+    printf("== p:%p ==\n", base);
+    printf("a:%2ld, b:%2ld, c:%2ld, d:%2ld, e:%2ld\n",
+        ((char *) &p.a)-base, ((char *) &p.b)-base,
+        ((char *) &p.c)-base, ((char *) &p.d)-base,
+        ((char *) &p.e)-base);
 }
